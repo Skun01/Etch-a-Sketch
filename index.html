@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+          display: flex; 
+          flex-wrap: wrap;
+        }
+        .cell{
+            width: 84px;
+            height: 35px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+    <script>
+        const containElem = document.querySelector(".container");
+        console.log(containElem);
+        for(let i = 0; i < 16; i++){
+            for(let j = 0; j < 16; j++){
+                let newCell = document.createElement('div');
+                newCell.classList.add('cell')
+                containElem.appendChild(newCell);
+            }
+        }
+        containElem.addEventListener('mousemove', event=>{
+            if(event.target === containElem){
+                return;
+            }
+            const childCell = event.target;
+            console.log(childCell);
+            childCell.style.backgroundColor = "green";
+        })
+        
+    </script>
+</body>
+</html>
